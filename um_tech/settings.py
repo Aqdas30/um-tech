@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'um_tech.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost/mydb')
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 
