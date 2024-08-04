@@ -1,0 +1,1 @@
+web gunicorn um_tech.wsgi:application --log-file -
