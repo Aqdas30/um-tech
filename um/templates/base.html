@@ -22,7 +22,12 @@
 
     <style>
         :root {
+<<<<<<< HEAD
             --hero-background-image: url('{% static "images/blueboy.jpg" %}');
+=======
+            --hero-background-image: url('{% static "images/blueboy.jpeg" %}');
+
+>>>>>>> 137d0f08509a2b46bb25de8a6260b8d467133386
 
         }
         
@@ -59,7 +64,11 @@
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+<<<<<<< HEAD
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5.5 0 0 1-.5-.5z"/>
+=======
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+>>>>>>> 137d0f08509a2b46bb25de8a6260b8d467133386
                 </svg>
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -192,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         document.addEventListener('DOMContentLoaded', function() {
+<<<<<<< HEAD
         console.log("Document loaded");
         
         // Function to load preview services
@@ -221,6 +231,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
         }
 
+=======
+            console.log("Document loaded");
+        
+            // Function to load preview services
+            function loadPreviewServices() {
+                fetch('/services/preview/')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Preview services data:", data);
+                        const servicesContainer = document.getElementById('services-container');
+                        servicesContainer.innerHTML = ''; // Clear any existing content
+                        data.forEach(service => {
+                            const serviceBox = document.createElement('div');
+                            serviceBox.classList.add('col-sm-6', 'col-md-4', 'mx-auto');
+                            serviceBox.innerHTML = `
+                                <div class="box">
+                                    <div class="img-box">
+                                        <img src="${service.image_url}" alt="${service.title}">
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>${service.title}</h5>
+                                        <p>${service.description}</p>
+                                    </div>
+                                </div>
+                            `;
+                            servicesContainer.appendChild(serviceBox);
+                        });
+                    });
+            }
+        
+            loadPreviewServices();
+        });
+        
+>>>>>>> 137d0f08509a2b46bb25de8a6260b8d467133386
         // Function to load all services
         function loadAllServices() {
             fetch('/services/')
@@ -235,7 +279,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         serviceBox.innerHTML = `
                             <div class="box">
                                 <div class="img-box">
+<<<<<<< HEAD
                                     <img src="${service.image}" alt="${service.title}">
+=======
+                                    <img src="${service.image_url}" alt="${service.title}">
+>>>>>>> 137d0f08509a2b46bb25de8a6260b8d467133386
                                 </div>
                                 <div class="detail-box">
                                     <h5>${service.title}</h5>
@@ -247,10 +295,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 });
         }
+<<<<<<< HEAD
 
         // Initially load preview services
         loadPreviewServices();
 
+=======
+        
+        // Initially load preview services
+        loadPreviewServices();
+        
+>>>>>>> 137d0f08509a2b46bb25de8a6260b8d467133386
         const viewMoreButton = document.getElementById('view-more');
         let isViewingMore = false;
 

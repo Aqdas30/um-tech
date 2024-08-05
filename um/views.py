@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+from urllib import response
+>>>>>>> 137d0f08509a2b46bb25de8a6260b8d467133386
 from django.conf import settings
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
@@ -48,3 +52,11 @@ class ServiceListPreviewView(generics.ListAPIView):
 
     def get_queryset(self):
         return Service.objects.all()[:3]
+<<<<<<< HEAD
+=======
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True, context={'request': request})
+        return response(serializer.data)
+>>>>>>> 137d0f08509a2b46bb25de8a6260b8d467133386
