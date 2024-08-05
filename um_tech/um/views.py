@@ -1,3 +1,4 @@
+from urllib import response
 from django.conf import settings
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
@@ -48,3 +49,8 @@ class ServiceListPreviewView(generics.ListAPIView):
 
     def get_queryset(self):
         return Service.objects.all()[:3]
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True, context={'request': request})
+        return response(serializer.data)
